@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Job Tracker</title>
+
+        <!-- include CSS Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    
+    <body>
+        <h1>Job Tracker</h1>
+        
+        <form name="job" id="job" action="">
+
+            <label for="company">Company: </label>
+            <input type="text" id="company">
+            <br>
+
+            <label for="title">Job Title: </label>
+            <input type="text" id="title">
+            <br>
+
+            <label for="link">Link to Job: </label>
+            <input type="text" id="link">
+            <br>
+
+            <label for="date">Date Applied: </label>
+            <input type="date" id="date">
+            <br>
+            
+            <label for="desc">Job Description: </label>
+            <input type="text" id="desc">
+            <br>
+
+            <label for="notes">Job Notes: </label>
+            <input type="text" id="notes">
+            <br>
+            
+            <input type="button" id="submit" value="Add Job">
+            <br>
+        </form>
+        
+        <table id="table">
+            <tr>
+                <th>Company</th>
+                <th>Job Title</th>
+                <th>Link to Job</th>
+                <th>Date Applied</th>
+                <th>Job Description</th>
+                <th>Job Notes</th>
+            </tr>
+        </table>
+    
+        <script type="text/javascript">
+            
+            document.getElementById("submit").onclick=function addJob()
+            {
+                document.getElementById("table").style.display="block";
+                
+                var table = document.getElementById("table");
+                var row = table.insertRow(-1);
+                var company = row.insertCell(0);
+                var title = row.insertCell(1);
+                var link = row.insertCell(2);
+                var date = row.insertCell(3);
+                var desc = row.insertCell(4);
+                var notes = row.insertCell(5);
+                var remove=row.insertCell(6);
+                company.innerHTML = document.getElementById("company").value;
+                title.innerHTML = document.getElementById("title").value;
+                link.innerHTML = document.getElementById("link").value;
+                date.innerHTML = document.getElementById("date").value;
+                desc.innerHTML = document.getElementById("desc").value;
+                notes.innerHTML = document.getElementById("notes").value;
+                
+                // return false;
+
+                // Add icon html
+                remove.innerHTML = '<i class="fa fa-remove" onClick="deleteJob(this)"></i>';
+
+                addToStorage();
+            }
+
+
+            
+
+            toDoArray = [];
+
+            window.addToStorage = function addToStorage() {
+                var storedArray = JSON.stringify(toDoArray);
+                localStorage.setItem("task", storedArray);
+            }
+
+window.buildTable = function buildTable() {
+  var retrievedTaskObject = localStorage.getItem("task");
+  var parsedObject = JSON.parse(retrievedTaskObject);
+  for (i = 0; i < parsedObject.length; i++) {
+      toDoArray.push(getTaskObj(parsedObject[i].name, parsedObject[i].date));
+      addTaskToTable(parsedObject[i]);
+  }
+}
+
+buildTable();
+
+
+            function deleteJob(node) {
+                var r=node.parentNode.parentNode;
+                r.parentNode.removeChild(r);
+            }
+
+               
+        
+        </script>
+    </body>
+</html>

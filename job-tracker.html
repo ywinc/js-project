@@ -4,9 +4,77 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Job Tracker</title>
+<!-- include CSS Bootstrap -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
+<!-- include jQuery and Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    
-</body>
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <div id="main" class="card">
+            <div class="card-content">
+              <span class="card-title">Job Tracker</span>
+              <div class="row">
+                <form id="task-form">
+                  <div class="input-field col s12">
+                      <!-- input job -->
+                    <input type="text" name="company" id="company">
+                    <label for="company">Company Name</label>
+                  </div>
+                  <div class="input-field col s12">
+                  <input type="text" name="title" id="title">
+                  <label for="title">Job Title</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input type="text" name="link" id="link">
+                    <label for="link">Link to Job</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input type="text" name="description" id="description">
+                    <label for="description">Job Description</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input type="text" name="notes" id="notes">
+                    <label for="notes">Job Notes</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input type="text" name="applied" id="applied">
+                    <label for="applied">Date Applied</label>
+                </div>
+
+                  <input type="submit" value="Add Job" class="btn">
+                </form>
+              </div>
+            </div>
+            <div class="card-action">
+              <h5 id="task-title">Jobs Applied</h5>
+              <div class="input-field col s12">
+                <input type="text" name="filter" id="filter">
+                <label for="filter">Filter Jobs</label>
+              </div>
+              <ul class="collection"></ul>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="job-tracker.js"></script>
+  </body>
+  </html>
 </html>
+

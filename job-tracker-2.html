@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Tracker</title>
+<!-- include CSS Bootstrap -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<!-- include jQuery and Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+     
+    <!-- button to add job on front pg -->
+    <div class="row" style="margin-bottom: 50px;">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Job3</button>
+        </div>
+    </div> 
+</div>
+
+<!-- popup to add job -->
+<div class="modal fade" id="addModal" tabindex="-1">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title">Add Job1</h5>
+              <button class="close" type="button" data-dismiss="modal">x</button>
+          </div>
+
+          <div class="modal-body">
+                   
+
+
+              <form id="job-form">
+                <!-- form to add job  -->
+                  <div class="form-group">
+                      <label for="company">Company Name</label>
+                      <input type="text" name="company" id="company" class="form-control" placeholder="Company Name"/>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="title">Job Title</label>
+                    <input type="text" name="title" class="form-control" placeholder="Job Title"/>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="link">Link to Job</label>
+                    <input type="text" name="link" class="form-control" placeholder="Link to Job"/>
+                  </div>
+
+                  <div class="form-group">
+                    <label for ="description">Job Description</label>
+                    <input type="text" name="description" class="form-control" placeholder="Job Description"/>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="notes">Job Notes</label>
+                    <input type="text" name="notes" class="form-control" placeholder="Job Notes"/>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="date">Date Applied</label>
+                    <input type="text" name="date" class="form-control" placeholder="Date Applied"/>
+                  </div>
+
+                  <!-- form submit button -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add Job2</button>
+                </div>
+
+              </form>
+          </div>
+
+          
+      </div>
+  </div>
+</div>
+
+
+<!-- show all jobs -->
+<table class="table">
+  <caption class="text-center">All Jobs</caption>
+      <tr>
+          <th>Company</th>
+          <th>Job Title</th>
+          <th>Link to Job</th>
+          <th>Job Description</th>
+          <th>Job Notes</th>
+          <th>Date Applied</th>
+      </tr>
+  <tbody id="all-jobs"></tbody>
+</table>
+
+<ul class="collection"></ul>
+
+
+  
+
+  </body>
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script src="job-tracker.js"></script>
+
+</html>
+
