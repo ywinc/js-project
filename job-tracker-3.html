@@ -74,37 +74,100 @@
                 var desc = row.insertCell(4);
                 var notes = row.insertCell(5);
                 var remove=row.insertCell(6);
-                company.innerHTML = document.getElementById("company").value;
-                title.innerHTML = document.getElementById("title").value;
-                link.innerHTML = document.getElementById("link").value;
-                date.innerHTML = document.getElementById("date").value;
-                desc.innerHTML = document.getElementById("desc").value;
-                notes.innerHTML = document.getElementById("notes").value;
+                let companyVal = document.getElementById("company").value;
+                let titleVal = document.getElementById("title").value;
+                let linkVal= document.getElementById("link").value;
+                let dateVal= document.getElementById("date").value;
+                let descVal= document.getElementById("desc").value;
+                let noteVal= document.getElementById("notes").value;
+
+
+
+                company.innerHTML = companyVal;
+                title.innerHTML = titleVal;
+                link.innerHTML = linkVal;
+                date.innerHTML = dateVal;
+                desc.innerHTML = descVal;
+                notes.innerHTML = noteVal;
+
+                let toDoArray = [companyVal, titleVal, linkVal, dateVal, descVal, noteVal];
                 
                 // return false;
 
                 // Add icon html
                 remove.innerHTML = '<i class="fa fa-remove" onClick="deleteJob(this)"></i>';
 
-                addToStorage();
+                addToStorage(toDoArray);
             }
+
+            
+
+            
+
+            // toDoArray = [];
+
+            // window.addToStorage = function addToStorage(toDoArray) {
+            //     var storedArray = JSON.stringify(toDoArray);
+            //     localStorage.setItem("task", storedArray);
+            // }
+
+
 
 
             
 
-            toDoArray = [];
+            // toDoArray = [];
 
-            window.addToStorage = function addToStorage() {
+            window.addToStorage = function addToStorage(toDoArray) {
                 var storedArray = JSON.stringify(toDoArray);
                 localStorage.setItem("task", storedArray);
+                if(localStorage.getItem('task') === null){
+                    storedArray = [];
+                } else {
+                    storedArray = JSON.parse(localStorage.getItem('task'));
+                }
+
+                storedArray.push(task);
+
+                localStorage.setItem("task", storedArray);
             }
+
+
+    // Remove Task
+    function removeTask(e) {
+        // Remove from LS
+        removeTaskFromLocalStorage(e.target.parentElement.parentElement);
+    }
+
+    // Remove from LS
+    function removeTaskFromLocalStorage(task) {
+        var storedArray = JSON.stringify(toDoArray);
+    if(localStorage.getItem('task') === null){
+        toDoArray = [];
+    } else {
+        toDoArray = JSON.parse(localStorage.getItem('task'));
+    }
+
+    toDoArray.forEach(function(task, index){
+        if(taskItem.textContent === task){
+        toDoArray.splice(index, 1);
+        }
+    });
+
+    localStorage.setItem("task", storedArray);
+    }
+
+
+
+
+
 
 window.buildTable = function buildTable() {
   var retrievedTaskObject = localStorage.getItem("task");
   var parsedObject = JSON.parse(retrievedTaskObject);
   for (i = 0; i < parsedObject.length; i++) {
       toDoArray.push(getTaskObj(parsedObject[i].name, parsedObject[i].date));
-      addTaskToTable(parsedObject[i]);
+      addJob(parsedObject[i]);
   }
 }
 
