@@ -1,6 +1,10 @@
 # js-project
 
+BVT Project: Create a Javascript Web Project
+
 Languages: HTML, CSS, JS
+
+The project must meet the following requirements:
 
 
 
