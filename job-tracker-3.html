@@ -13,6 +13,26 @@
         <!-- include CSS Bootstrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <style>
+        html,body{
+        height: 100%;
+        background-color: #ffffea;
+        margin: 10px;
+        }
+        form{
+            color: black;
+        }
+        table {
+            border: 1px solid #d8d8d8;
+            
+        }
+        .btn-info{
+            padding: 10px;
+            margin: 10px;
+        }
+        
+    </style>
     </head>
     
     <body>
@@ -44,11 +64,11 @@
             <input type="text" id="notes">
             <br>
             
-            <input type="button" id="submit" value="Add Job">
+            <input type="button" class = "btn btn-info" id="submit" value="Add Job">
             <br>
         </form>
         
-        <table id="table">
+        <table id="table" cellpadding= "10px";>
             <tr>
                 <th>Company</th>
                 <th>Job Title</th>
